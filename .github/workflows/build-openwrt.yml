@@ -60,7 +60,6 @@ jobs:
         df -hT $PWD
         git clone https://github.com/x-wrt/x-wrt.git openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        git describe --tags $(git rev-list --tags --max-count=1)
 
     - name: Load custom feeds
       run: |
