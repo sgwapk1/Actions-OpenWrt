@@ -67,12 +67,9 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
-        
- - name: Define Tag
-      run: cd openwrt && git describe --tags $(git rev-list --tags --max-count=1)
       
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
+      run: cd openwrt && git describe --tags $(git rev-list --tags --max-count=1) &&  cd openwrt && ./scripts/feeds update -a
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
