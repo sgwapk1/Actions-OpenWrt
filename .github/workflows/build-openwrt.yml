@@ -58,7 +58,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        git clone https://github.com/x-wrt/x-wrt.git openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         git describe --tags $(git rev-list --tags --max-count=1)
 
